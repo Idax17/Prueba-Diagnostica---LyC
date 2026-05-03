@@ -6,22 +6,27 @@ def EsPar(Numero):
 
 def CalcularCollatz(Numero):
     Pasos = [Numero]
+
     while Numero > 1:
         if (EsPar(Numero) == False):
             Numero = Numero * 3 + 1
         else:
             Numero = Numero // 2
+
         Pasos.append(Numero)
+
     return Pasos
 
 def solicitar_entero(Mensaje):
     while True:
         Valor = input(Mensaje).strip()
+
         try:
             Numero = int(Valor)
             if Numero > 0:
                 return Numero
             print("Error: ingrese un número entero positivo válido.")
+            
         except ValueError:
             print("Error: ingrese un número entero válido.")
 

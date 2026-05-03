@@ -30,20 +30,27 @@ def analisis_de_cadena(cadena):
         if caracter.isdigit():
             if caracter < '1' or caracter > '8':
                 return "Dígito no válido (debe ser entre 1 y 8)"
+            
             casillas_en_seccion += int(caracter)
+
             if casillas_en_seccion > 8:
                 return "Sección excede 8 casillas"
 
         elif caracter.isalpha():
             if caracter in "rtpdcdaRTPDCDA":
+
                 if caracter in contador_letras:
                     contador_letras[caracter] += 1
+
                     if contador_letras[caracter] > limites_letras[caracter]:
                         return f"Más de {limites_letras[caracter]} '{caracter}'"
+                    
                 casillas_en_seccion += 1
+
                 if casillas_en_seccion > 8:
                     return "Sección excede 8 casillas"
                 print(f"{caracter}", end=' ')
+
             else:
                 return "Letra no válida (debe ser una pieza de ajedrez)"
             i += 1
@@ -53,10 +60,14 @@ def analisis_de_cadena(cadena):
         elif caracter == '/':
             if casillas_en_seccion != 8:
                 return "Sección no tiene 8 casillas"
+            
             contador_slash += 1
+
             if contador_slash > 8:
                 return "No puede haber más de 8 '/'"
+            
             casillas_en_seccion = 0
+
             i += 1
             previo = caracter
             continue
