@@ -5,15 +5,12 @@
 #Ejemplo: 4t1r1/p1p2pp1/1d1p3p/1P3P2/1P6/2c1D3/PA4PP/4T1R1/
 
 def analisis_de_cadena(cadena):
-    i = 0
-    # Almacena el caracter anterior para verificar '/' consecutivos
-    previo = ''
+    i = 0  
+    previo = ''  # Almacena el caracter anterior para verificar '/' consecutivos
 
-    # Contador de '/' para asegurar que haya exactamente 8
-    contador_slash = 0
+    contador_slash = 0  # Contador de '/' para asegurar que haya exactamente 8
 
-    # Contador de casillas en la sección actual
-    casillas_en_seccion = 0
+    casillas_en_seccion = 0 # Contador de casillas en la sección actual
 
     # Contadores para cada letra y sus límites
     contador_letras = {'r': 0, 'R': 0, 'd': 0, 'D': 0, 'p': 0, 'P': 0, 'a': 0, 'A': 0, 'c': 0, 'C': 0, 't': 0, 'T': 0}
