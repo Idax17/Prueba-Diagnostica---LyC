@@ -1,3 +1,16 @@
+#3) Escriba un código que verifique si se cumple la conjetura 
+#de collatz en enteros de un intervalo [p,q]. La conjetura indica 
+#que para cualquier número entero positivo n se aplica:
+
+#Si n es par → n = n / 2, Si n es impar → n = 3n + 1,
+
+#Ejemplo n=6: 6 → 3 → 10 → 5 → 16 → 8 → 4 → 2 → 1
+#        n=7: 7 → 22 → 11 → 34 → 17 → 52 → 26 → 13 → 40 → 20...
+#        n=8: 8 → 4 → 2 → 1
+#Demostrado...
+
+#Regla q ≥ 100p para poder aplicar la demostración.
+
 def EsPar(Numero):
 	if (Numero % 2 == 1):
 		return False
@@ -17,10 +30,8 @@ def CalcularCollatz(Numero):
 
     return Pasos
 
-def solicitar_entero(Mensaje):
+def solicitar_entero(Valor):
     while True:
-        Valor = input(Mensaje).strip()
-
         try:
             Numero = int(Valor)
             if Numero > 0:
@@ -31,8 +42,8 @@ def solicitar_entero(Mensaje):
             print("Error: ingrese un número entero válido.")
 
 def verificarCollatz():
-    p = solicitar_entero('Ingrese el valor de p (inicio del intervalo): ')
-    q = solicitar_entero('Ingrese el valor de q (fin del intervalo): ')
+    p = solicitar_entero(input('Ingrese el valor de p (inicio del intervalo): ').strip())
+    q = solicitar_entero(input('Ingrese el valor de q (fin del intervalo): ').strip())
 
     # Validación de la regla q >= 100p
     if q < 100 * p:

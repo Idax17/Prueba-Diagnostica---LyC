@@ -1,3 +1,19 @@
+#1) Dado una cadena de expresión aritmética imprima cada componente 
+#según su clasificación
+#( NUMERO, OPERADOR, PAREN_IZQ, PAREN_DER, OPERANDO, ERROR).
+
+#Reglas:
+#NUMERO: debe ser un entero o un real con el “.”, como marcador de 
+#decimales, sin signo
+#OPERANDO: no debe tener espacios ni iniciar con un numero (VALOR, 
+#A, B, CONT)
+#OPERADOR: + - * /
+
+#Ejemplo de salida para "12+ 3 * (4)":
+#Salida:
+#NUMERO 12 NUMERO 4 OPERADOR + NUMERO 3 OPERADOR * 
+#PAREN_IZQ ( PAREN_DER ) PARÉNTESIS BALANCEADOS.
+
 def analisis_de_cadena(cadena):
     balance = 0
     is_balanced = True
@@ -28,6 +44,8 @@ def analisis_de_cadena(cadena):
                 if cadena[j] == '.' and j + 1 < len(cadena) and cadena[j + 1].isdigit():
                     numero += cadena[j]
                     j += 1
+
+                    #Continuamos agregando dígitos al número después del punto decimal
                     while j < len(cadena) and cadena[j].isdigit(): 
                         numero += cadena[j]
                         j += 1
@@ -63,7 +81,7 @@ def analisis_de_cadena(cadena):
             print(f"OPERADOR {caracter}", end=' ')
 
         else:
-            print(f"CARACTER_INVALIDO {caracter}", end=' ')
+            print(f"ERROR {caracter}", end=' ')
 
         i += 1
 

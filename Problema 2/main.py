@@ -1,3 +1,9 @@
+#2) Dado una cadena C, valide si C se encuentra en notación FEN 
+#(Forsyth-Edwards Notation), Forsyth–Edwards Notation. FEN 
+#(Wikipedia, 2025).
+
+#Ejemplo: 4t1r1/p1p2pp1/1d1p3p/1P3P2/1P6/2c1D3/PA4PP/4T1R1/
+
 def analisis_de_cadena(cadena):
     i = 0
     # Almacena el caracter anterior para verificar '/' consecutivos
@@ -10,8 +16,8 @@ def analisis_de_cadena(cadena):
     casillas_en_seccion = 0
 
     # Contadores para cada letra y sus límites
-    contador_letras = {'r': 0, 'R': 0, 'd': 0, 'D': 0, 'p': 0, 'P': 0, 'a': 0, 'c': 0, 't': 0}
-    limites_letras = {'r': 1, 'R': 1, 'd': 1, 'D': 1, 'p': 8, 'P': 8, 'a': 2, 'c': 2, 't': 2}
+    contador_letras = {'r': 0, 'R': 0, 'd': 0, 'D': 0, 'p': 0, 'P': 0, 'a': 0, 'A': 0, 'c': 0, 'C': 0, 't': 0, 'T': 0}
+    limites_letras = {'r': 1, 'R': 1, 'd': 1, 'D': 1, 'p': 8, 'P': 8, 'a': 2, 'A': 2, 'c': 2, 'C': 2, 't': 2, 'T': 2}
 
     if len(cadena) == 0 or cadena[0] == '/':
         return "La cadena está vacía o comienza con '/'"
@@ -37,7 +43,7 @@ def analisis_de_cadena(cadena):
                 return "Sección excede 8 casillas"
 
         elif caracter.isalpha():
-            if caracter in "rtpdcdaRTPDCDA":
+            if caracter in "rtpdcaRTPDCA":
 
                 if caracter in contador_letras:
                     contador_letras[caracter] += 1
